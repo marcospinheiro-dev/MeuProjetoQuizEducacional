@@ -189,11 +189,11 @@ public class QuizJframe implements ActionListener {
         qtdAcerto.setBounds(425, 600, 200, 50);
         qtdAcerto.setBackground(new Color(255, 255, 255));
         qtdAcerto.setForeground(new Color(25, 25, 25));
-        qtdAcerto.setFont(new Font(" ", Font.BOLD, 15));
+        qtdAcerto.setFont(new Font(" ", Font.BOLD, 20));
         qtdAcerto.setBorder(BorderFactory.createBevelBorder(1));
         qtdAcerto.setHorizontalAlignment(JTextField.CENTER);
         qtdAcerto.setEditable(false);
-        qtdAcerto.setText("0");
+        qtdAcerto.setText("Acerto em %");
         qtdAcerto.setVisible(false);
 
         frame.add(qtdAcerto);
@@ -242,6 +242,7 @@ public class QuizJframe implements ActionListener {
 
         if (isTesteIniciado) {
             iniciar.setVisible(false);
+            qtdAcerto.setText("Acerto em %");
             visibilidadeDeBotoes(true);
         }
     }
@@ -251,7 +252,7 @@ public class QuizJframe implements ActionListener {
     }
 
     private void mostraResultado() {
-        qtdAcerto.setText("Seu total de pontos foi: " + score);
+        qtdAcerto.setText("Você acertou " + score*100/50 + "%");
     }
 
     private void verificaSeReiniciarTesteFoiExecutado(ActionEvent e) {
@@ -340,7 +341,7 @@ public class QuizJframe implements ActionListener {
             }
 
             if (e.getSource() == iniciar || e.getSource() == reIniciar) {//Botão iniciar = primeiro clic
-                textoDaPergunta.setText("1)A ordem baixada pelo governador de Minas Gerais, Visconde de Barbacena, " +
+                textoDaPergunta.setText("1) A ordem baixada pelo governador de Minas Gerais, Visconde de Barbacena, " +
                         "para que se realizasse a Derrama, ou seja, a cobrança dos tributos devidos à coroa " +
                         "portuguesa foi a causa imediata da: ");
                 textoResposta1.setText("Revolta dos Alfaiates");
@@ -374,7 +375,7 @@ public class QuizJframe implements ActionListener {
                 respCorretaIncorreta.setText("Resposta incorreta");
             }
             if (e.getSource() == proximaQuestao) {//Segundo clic
-                textoDaPergunta.setText("2)A primeira “relação de trabalho” entre portugueses e índios brasileiros foi: ");
+                textoDaPergunta.setText("2) A primeira “relação de trabalho” entre portugueses e índios brasileiros foi: ");
                 textoResposta1.setText("O escambo");
                 textoResposta2.setText("A servidão");
                 textoResposta3.setText("O colonato");
@@ -405,7 +406,7 @@ public class QuizJframe implements ActionListener {
                 respCorretaIncorreta.setText("Resposta incorreta");
             }
             if (e.getSource() == proximaQuestao) {//Terceiro clic
-                textoDaPergunta.setText("3)Quem foi o primeiro governador-geral do Brasil? ");
+                textoDaPergunta.setText("3) Quem foi o primeiro governador-geral do Brasil? ");
                 textoResposta1.setText("Mem de Sá");
                 textoResposta2.setText("Tomé de Sousa");
                 textoResposta3.setText("Duarte da Costa");
@@ -436,7 +437,7 @@ public class QuizJframe implements ActionListener {
                 respCorretaIncorreta.setText("Resposta incorreta");
             }
             if (e.getSource() == proximaQuestao) {//Quarto clic
-                textoDaPergunta.setText("4)Qual era o nome da principal estrada que ligava as Minas Gerais com o Rio de " +
+                textoDaPergunta.setText("4) Qual era o nome da principal estrada que ligava as Minas Gerais com o Rio de " +
                         "Janeiro durante o auge do período da mineração? ");
                 textoResposta1.setText("Caminho Novo");
                 textoResposta2.setText("Estrada Lusitana");
@@ -473,7 +474,7 @@ public class QuizJframe implements ActionListener {
                 respCorretaIncorreta.setText("Resposta incorreta");
             }
             if (e.getSource() == proximaQuestao) {//quinto clic                //
-                textoDaPergunta.setText("5)Os bandeirantes eram os responsáveis por expedições que ficaram conhecidas como: ");
+                textoDaPergunta.setText("5) Os bandeirantes eram os responsáveis por expedições que ficaram conhecidas como: ");
                 textoResposta1.setText("Derramas");
                 textoResposta2.setText("Capitulações");
                 textoResposta3.setText("Processos");
