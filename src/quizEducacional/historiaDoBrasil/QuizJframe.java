@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.EventObject;
+import java.util.Objects;
 
 public class QuizJframe implements ActionListener {
 
@@ -236,7 +236,7 @@ public class QuizJframe implements ActionListener {
     }
 
     private void verificaSeTesteFoiIniciado(ActionEvent e) {
-        if (e.getActionCommand() == "Iniciar teste") {
+        if (Objects.equals(e.getActionCommand(), "Iniciar teste")) {
             isTesteIniciado = true;
         }
 
@@ -244,12 +244,14 @@ public class QuizJframe implements ActionListener {
             iniciar.setVisible(false);
             qtdAcerto.setText("Acerto em %");
             visibilidadeDeBotoes(true);
+            proximaQuestao.setVisible(false);
+
         }
     }
 
-    private void verificaTempo() throws InterruptedException {
-        new Thread().sleep(1000);
-    }
+//    private void verificaTempo(int i) throws InterruptedException {
+//        new Thread().interrupt();
+//    }
 
     private void mostraResultado() {
         qtdAcerto.setText("Você acertou " + score*100/50 + "%");
@@ -257,7 +259,7 @@ public class QuizJframe implements ActionListener {
 
     private void verificaSeReiniciarTesteFoiExecutado(ActionEvent e) {
 
-        if(e.getActionCommand() == "Reiniciar teste") {
+        if(Objects.equals(e.getActionCommand(), "Reiniciar teste")) {
 
             reIniciar.setVisible(false);
             visibilidadeDeBotoes(true);
@@ -310,7 +312,7 @@ public class QuizJframe implements ActionListener {
             botao5.setEnabled(false);
         }
 
-        if (e.getActionCommand() == "Próxima questão") {
+        if (Objects.equals(e.getActionCommand(), "Próxima questão")) {
             botao1.setEnabled(true);
             botao2.setEnabled(true);
             botao3.setEnabled(true);
@@ -320,6 +322,11 @@ public class QuizJframe implements ActionListener {
         }
 
         verificaSeTesteFoiIniciado(e);
+        if(e.getSource() == botao1 || e.getSource() == botao2 ||
+                e.getSource() == botao3 || e.getSource() == botao4 ||
+                e.getSource() == botao5){
+            proximaQuestao.setVisible(true);
+        }
 
         if (perguntaAtual == 1) {
 
